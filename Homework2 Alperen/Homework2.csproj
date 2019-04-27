@@ -66,5 +66,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\counting.txt" />
+    <None Include="Resources\insertion.txt" />
+    <Content Include="Resources\merge.txt" />
+    <Content Include="Resources\quick.txt" />
+    <Content Include="Resources\heap.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
