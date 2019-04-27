@@ -9,13 +9,29 @@ namespace Homework2
     {
         static void Main(string[] args)
         {
-            int[] input = { 76, 89, 23, 1, 55, 78, 99, 12, 65, 100 };
-
-            execute("insertion", input);
-            execute("merge", input);
-            execute("counting", input);
-            execute("quick", input);
-            execute("heap", input);
+            int[] s = { 10, 20, 30, 40, 50, 32, 34, 54, 5476, 23 };
+            execute("quick", s);
+            int[] lengths = { 100, 500, 1000, 5000, 10000 };
+            for (int i = 0; i<lengths.Length;i++)
+            {
+                int[] input = createArray(lengths[i]);
+                execute("insertion", input);
+                execute("merge", input);
+                execute("counting", input);
+                execute("quick", input);
+                execute("heap", input);
+                Console.Write("test");
+            }     
+        }
+        static int[] createArray(int length)
+        {
+            int[] input = new int[length];
+            Random random = new Random();
+            for (int i = 0; i < input.Length; i++)
+            {
+                input[i] = random.Next(0, 1000);
+            }
+            return input;
         }
         static void printArray(int[] arr)
         {
