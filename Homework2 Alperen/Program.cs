@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Homework2.InsertionSort;
-using static Homework2.MergeSort;
 
 namespace Homework2
 {
@@ -22,6 +20,11 @@ namespace Homework2
             MergeSort mer = new MergeSort();
             mer.mergeSort(inputMerge, 0, inputMerge.Length - 1);
             printArray(inputMerge);
+            int[] inputCount = { 762, 819, 235, 12, 545, 178, 99, 12, 645, 100 };
+            Console.WriteLine("CountingSort: ");
+            CountingSort con = new CountingSort();
+            con.sort(inputCount);
+            printArray(inputCount);
         }
         static void printArray(int[] arr)
         {
