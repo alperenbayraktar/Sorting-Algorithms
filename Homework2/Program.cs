@@ -10,8 +10,8 @@ namespace Homework2
     {
         static void Main(string[] args)
         {
-            Console.Write("master\n");
-            Console.WriteLine("lmao");
+            Console.Write("master");
+            Console.Write("lmao");  
         }
     }
 }
