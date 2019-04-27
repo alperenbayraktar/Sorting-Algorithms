@@ -10,7 +10,7 @@ namespace Homework2
     {
         static void Main(string[] args)
         {
-            Console.Write("alo\n");
+            Console.Write("helleolo\n");
         }
     }
 }
