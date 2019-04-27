@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Homework2
 {
-    class EmreClass
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("EmreLOV\n");
+            Console.WriteLine("test");
         }
     }
 }

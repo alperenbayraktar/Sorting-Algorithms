@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Homework2
 {
-    class Program
+    class EmreClass
     {
         static void Main(string[] args)
         {
-            Console.Write("master");
-            Console.Write("lmao");  
+            Console.Write("EMRE\n");
         }
     }
 }
