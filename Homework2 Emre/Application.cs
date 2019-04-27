@@ -10,6 +10,7 @@ namespace Homework2
     {
         static void Main(string[] args)
         {
+            /*
             int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
             int n = 10, i;
             Console.WriteLine("Quick Sort");
@@ -45,7 +46,42 @@ namespace Homework2
             for (j = 0; j < n; j++)
             {
                 Console.Write(arr2[j] + " ");
+            }*/
+
+
+            int[] input1000 = new int[1000];
+
+            fillInputArray(input1000);
+
+            //print out the random strings
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.Write(input1000[i] + " ");
             }
+
+            //best case inputs
+            int[] bestInp1000 = new int[1000];
+            for (int k = 0; k < 1000; k++)
+                bestInp1000[k] = 1;
+            
+            //print out the best case
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.Write(bestInp1000[i] + " ");
+            }
+
+
+            void fillInputArray(int[] inp)
+            {
+                Random random = new Random();
+                int arrLen = inp.Length;
+                for (int i = 0; i < arrLen; i++)
+                {
+                    inp[i] = random.Next(0, 1000);
+                }
+            }
+
         }
+
     }
 }
