@@ -9,19 +9,32 @@ namespace Homework2
     {
         static void Main(string[] args)
         {
-            int[] s = { 10, 20, 30, 40, 50, 32, 34, 54, 5476, 23 };
-            execute("quick", s);
-            int[] lengths = { 100, 500, 1000, 5000, 10000 };
+            
+            int[] lengths = ;
             for (int i = 0; i<lengths.Length;i++)
             {
-                int[] input = createArray(lengths[i]);
+                Console.WriteLine("Array Length is: " + lengths[i]);
+                int[] input = createArray(lengths[i]);            
                 execute("insertion", input);
                 execute("merge", input);
                 execute("counting", input);
-                execute("quick", input);
                 execute("heap", input);
-                Console.Write("test");
-            }     
+                execute("quick", input);
+            }
+            //for (int i = 0; i < lengths.Length; i++)
+            //{
+            //    Console.WriteLine("Array Length is: " + lengths[i]);
+            //    int[] input = createBestArray(lengths[i]);
+            //    execute("insertion", input);
+            //    execute("merge", input);
+            //    execute("counting", input);
+            //    execute("heap", input);
+            //    execute("quick", input);
+            //}
+        }
+        static int[] createLength()
+        {
+            
         }
         static int[] createArray(int length)
         {
@@ -30,6 +43,15 @@ namespace Homework2
             for (int i = 0; i < input.Length; i++)
             {
                 input[i] = random.Next(0, 1000);
+            }
+            return input;
+        }
+        static int[] createBestArray(int length)
+        {
+            int[] input = new int[length];
+            for (int i = 0; i < input.Length; i++)
+            {
+                input[i] = 1;
             }
             return input;
         }
@@ -73,16 +95,16 @@ namespace Homework2
                 case "heap":
                     title = sr.heap;
                     HeapSort heap = new HeapSort();
-                    heap.heapSort(output, 10);
+                    heap.heapSort(output, output.Length );
                     break;
                 default:
                     break;
             }
             Console.WriteLine(title);
-            Console.WriteLine(sr.init);
-            printArray(input);
-            Console.WriteLine(sr.sorted);
-            printArray(output);
+            //Console.WriteLine(sr.init);
+            //printArray(input);
+            //Console.WriteLine(sr.sorted);
+            //printArray(output);
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;
             Console.Write(sr.time);

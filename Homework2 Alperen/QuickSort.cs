@@ -8,46 +8,53 @@ namespace Homework2
 {
     class QuickSort
     {
-        static public int Partition(int[] arr, int left, int right)
+        static int partition(int[] arr, int low, int high)
         {
-            int pivot;
-            pivot = arr[left];
-            while (true)
+            int pivot = arr[high];
+
+            // index of smaller element 
+            int i = (low - 1);
+            for (int j = low; j < high; j++)
             {
-                while (arr[left] < pivot)
+                // If current element is smaller  
+                // than or equal to pivot 
+                if (arr[j] <= pivot)
                 {
-                    left++;
-                }
-                while (arr[right] > pivot)
-                {
-                    right--;
-                }
-                if (left < right)
-                {
-                    int temp = arr[right];
-                    arr[right] = arr[left];
-                    arr[left] = temp;
-                }
-                else
-                {
-                    return right;
+                    i++;
+
+                    // swap arr[i] and arr[j] 
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
                 }
             }
+
+            // swap arr[i+1] and arr[high] (or pivot) 
+            int temp1 = arr[i + 1];
+            arr[i + 1] = arr[high];
+            arr[high] = temp1;
+
+            return i + 1;
         }
-        public void quickSort(int[] arr, int left, int right)
+
+
+        /* The main function that implements QuickSort() 
+        arr[] --> Array to be sorted, 
+        low --> Starting index, 
+        high --> Ending index */
+        public void quickSort(int[] arr, int low, int high)
         {
-            int pivot;
-            if (left < right)
+            if (low < high)
             {
-                pivot = Partition(arr, left, right);
-                if (pivot > 1)
-                {
-                    quickSort(arr, left, pivot - 1);
-                }
-                if (pivot + 1 < right)
-                {
-                    quickSort(arr, pivot + 1, right);
-                }
+
+                /* pi is partitioning index, arr[pi] is  
+                now at right place */
+                int pi = partition(arr, low, high);
+
+                // Recursively sort elements before 
+                // partition and after partition 
+                quickSort(arr, low, pi - 1);
+                quickSort(arr, pi + 1, high);
             }
         }
     }
