@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HeapSort.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="QuickSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

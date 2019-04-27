@@ -34,7 +34,7 @@ namespace Homework2
                 }
             }
         }
-        static public void quickSort(int[] arr, int left, int right)
+        public void quickSort(int[] arr, int left, int right)
         {
             int pivot;
             if (left < right)
@@ -48,23 +48,6 @@ namespace Homework2
                 {
                     quickSort(arr, pivot + 1, right);
                 }
-            }
-        }
-        static void Main(string[] args)
-        {
-            int[] arr = { 67, 12, 95, 56, 85, 1, 100, 23, 60, 9 };
-            int n = 10, i;
-            Console.WriteLine("Quick Sort");
-            Console.Write("Initial array is: ");
-            for (i = 0; i < n; i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-            quickSort(arr, 0, 9);
-            Console.Write("\nSorted Array is: ");
-            for (i = 0; i < n; i++)
-            {
-                Console.Write(arr[i] + " ");
             }
         }
     }

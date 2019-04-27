@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Homework2
 {
-    public class HeapSort
+    class HeapSort
     {
-        static void heapSort(int[] arr, int n)
+        public void heapSort(int[] arr, int n)
         {
             for (int i = n / 2 - 1; i >= 0; i--)
                 heapify(arr, n, i);
@@ -35,23 +35,6 @@ namespace Homework2
                 arr[i] = arr[largest];
                 arr[largest] = swap;
                 heapify(arr, n, largest);
-            }
-        }
-        public static void Main()
-        {
-            int[] arr = { 55, 25, 89, 34, 12, 19, 78, 95, 1, 100 };
-            int n = 10, i;
-            Console.WriteLine("Heap Sort");
-            Console.Write("Initial array is: ");
-            for (i = 0; i < n; i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-            heapSort(arr, 10);
-            Console.Write("\nSorted Array is: ");
-            for (i = 0; i < n; i++)
-            {
-                Console.Write(arr[i] + " ");
             }
         }
     }
