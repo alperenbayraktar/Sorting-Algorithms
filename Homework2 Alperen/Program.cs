@@ -9,26 +9,33 @@ namespace Homework2
 {
     class Program
     {
+        static int global = 0;
         static void Main(string[] args)
         {
+            
             int[] lengths = new int[100];           // Creating the array that we hold length values for the loop below.
             int x = 0;                              // lengths go like 5000, 10000, 15000, 20000.........495000, 500000.
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < lengths.Length; i++)
             {
                 lengths[i] = x + 5000;
                 x += 5000;
             }
-
-            for (int i = 0; i<lengths.Length;i++)
+            for(int k = 0; k< lengths.Length; k++)
             {
-                Console.WriteLine("Array Length is: " + lengths[i]);
-                int[] input = createArray(lengths[i]);            
-                execute("insertion", input);
-                execute("merge", input);
-                execute("counting", input);
-                execute("heap", input);
-                execute("quick", input);
+                for (int i = 0; i < lengths.Length; i++)
+                {
+                    Console.WriteLine("Array Length is: " + lengths[i]);
+                    int[] input = createArray(lengths[i]);
+                    execute("insertion", input);
+                    execute("merge", input);
+                    execute("counting", input);
+                    execute("heap", input);
+                    execute("quick", input);
+                    global++;
+                }
+                global = 0;
             }
+            
             //for (int i = 0; i < lengths.Length; i++)
             //{
             //    Console.WriteLine("Array Length is: " + lengths[i]);
@@ -126,14 +133,22 @@ namespace Homework2
             path = fileLoc + "\\Resources\\" + path;
             append(time, path);
         }
-        static void append(string input,string path)           //Adds input to the out.txt
-        {
-            
+        static void append(string input,string path)           //
+        {            
             using (StreamWriter file = new StreamWriter(@path, true))          
             {
-                file.Flush();
-                file.Write(input+",");
-                file.Close();
+                if (global == 99)
+                {
+                    file.Flush();
+                    file.WriteLine(input);                    
+                    file.Close();
+                }
+                else
+                {
+                    file.Flush();
+                    file.Write(input + " ");
+                    file.Close();
+                }                
             }
         }
     }
