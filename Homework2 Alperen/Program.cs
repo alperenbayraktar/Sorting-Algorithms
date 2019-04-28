@@ -11,7 +11,6 @@ namespace Homework2
     {
         static void Main(string[] args)
         {
-            append("asd", "insertion.txt");
             int[] lengths = new int[100];           // Creating the array that we hold length values for the loop below.
             int x = 0;                              // lengths go like 5000, 10000, 15000, 20000.........495000, 500000.
             for (int i = 0; i < 100; i++)
