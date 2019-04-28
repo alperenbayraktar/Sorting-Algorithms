@@ -67,14 +67,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="counting.txt" />
-    <None Include="insertion.txt" />
-    <None Include="merge.txt" />
-    <None Include="quick.txt" />
-    <None Include="heap.txt" />
+    <None Include="Resources\counting.txt" />
+    <None Include="Resources\insertion.txt" />
+    <None Include="Resources\merge.txt" />
+    <None Include="Resources\quick.txt" />
+    <None Include="Resources\heap.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

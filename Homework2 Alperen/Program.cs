@@ -121,13 +121,19 @@ namespace Homework2
             Console.WriteLine(elapsedMs);
             string time = "" + elapsedMs;
             Console.WriteLine();
+            string workingDirectory = Environment.CurrentDirectory;
+            string fileLoc = Directory.GetParent(workingDirectory).Parent.FullName;
+            path = fileLoc + "\\Resources\\" + path;
             append(time, path);
         }
         static void append(string input,string path)           //Adds input to the out.txt
         {
+            
             using (StreamWriter file = new StreamWriter(@path, true))          
             {
-                file.WriteLine(input);
+                file.Flush();
+                file.Write(input+",");
+                file.Close();
             }
         }
     }
