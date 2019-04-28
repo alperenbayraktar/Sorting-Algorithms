@@ -12,7 +12,7 @@ namespace Homework2
         static int global = 0;                      //We need this global value to know if we are at the last element of the line.
         static void Main(string[] args)
         {
-            
+
             int[] lengths = new int[100];           // Creating the array that we hold length values for the loop below.
             int x = 0;                              // lengths go like 5000, 10000, 15000, 20000.........495000, 500000.
             for (int i = 0; i < lengths.Length; i++)
@@ -20,11 +20,11 @@ namespace Homework2
                 lengths[i] = x + 5000;
                 x += 5000;
             }
-            for(int k = 0; k< lengths.Length; k++)                          //100 different tests
+            for (int k = 0; k < lengths.Length; k++)                          //100 different tests
             {
                 for (int i = 0; i < lengths.Length; i++)                    //Testing with 100 different input sizes.
                 {
-                    Console.WriteLine("Array Length is: " + lengths[i]);    
+                    Console.WriteLine("Array Length is: " + lengths[i]);
                     int[] input = createArray(lengths[i]);                  //Creating different sized, random valued input arrays.
                     execute("insertion", input);                            //Sorting the same input array with different methods.
                     execute("merge", input);
@@ -35,7 +35,7 @@ namespace Homework2
                 }
                 global = 0; //Need to reset the value for the next iteration.
             }
-            
+
             //for (int i = 0; i < lengths.Length; i++)
             //{
             //    Console.WriteLine("Array Length is: " + lengths[i]);
@@ -112,7 +112,7 @@ namespace Homework2
                     path = "heap.txt";
                     title = sr.heap;
                     HeapSort heap = new HeapSort();
-                    heap.heapSort(output, output.Length );
+                    heap.heapSort(output, output.Length);
                     break;
                 default:
                     break;
@@ -128,19 +128,17 @@ namespace Homework2
             Console.WriteLine(elapsedMs);
             string time = "" + elapsedMs;
             Console.WriteLine();
-            string workingDirectory = Environment.CurrentDirectory;                     //To get to solutions directory for updating the data files.
-            string fileLoc = Directory.GetParent(workingDirectory).Parent.FullName;
-            path = fileLoc + "\\Resources\\" + path;
-            append(time, path);                                           
+            path = pathCreate(path);
+            append(time, path);
         }
-        static void append(string input,string path)           //Appends the new content to the input file.
-        {            
-            using (StreamWriter file = new StreamWriter(@path, true))          
+        static void append(string input, string path)           //Appends the new content to the input file.
+        {
+            using (StreamWriter file = new StreamWriter(@path, true))
             {
                 if (global == 99)                             //When the global counter hits 99, appends the value and proceeds to the new line.
                 {
                     file.Flush();
-                    file.WriteLine(input);                    
+                    file.WriteLine(input);
                     file.Close();
                 }
                 else
@@ -148,8 +146,19 @@ namespace Homework2
                     file.Flush();
                     file.Write(input + " ");
                     file.Close();
-                }                
+                }
             }
+        }
+        static string pathCreate(string path)
+        {
+            string workingDirectory = Environment.CurrentDirectory;                     //To get to solutions directory for updating the data files.
+            string fileLoc = Directory.GetParent(workingDirectory).Parent.FullName;
+            path = fileLoc + "\\Resources\\" + path;
+            return path;
+        }
+        static void theoreticals()
+        {
+
         }
     }
     
