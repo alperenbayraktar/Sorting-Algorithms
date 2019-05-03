@@ -8,7 +8,8 @@ namespace Homework2
 {
     class QuickSort
     {
-        static int partition(int[] arr, int low, int high)
+        public long basicOp = 0; 
+        public int partition(int[] arr, int low, int high)
         {
             int pivot = arr[high];                              //pivot is the line(number) before the last element like: 1 4 4 52 3 1 56 54 | 43
             int i = (low - 1);                                  //this is initially 0.
@@ -16,6 +17,7 @@ namespace Homework2
             {
                 if (arr[j] <= pivot)
                 {
+                    basicOp++;
                     i++;
                     int temp = arr[i];
                     arr[i] = arr[j];
@@ -23,6 +25,8 @@ namespace Homework2
                 }
             }
             int temp1 = arr[i + 1];
+            basicOp++;
+            basicOp++;
             arr[i + 1] = arr[high];
             arr[high] = temp1;
             return i + 1;

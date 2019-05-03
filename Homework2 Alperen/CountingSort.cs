@@ -8,6 +8,7 @@ namespace Homework2
 {
     class CountingSort
     {
+        public int basicOp = 0;
         public void sort(int[] data)
         {
             int min = data.Min();
@@ -19,12 +20,16 @@ namespace Homework2
                 count[i] = 0;
 
             for (int i = 0; i < data.Length; i++)
+            {
                 count[data[i] - min]++;
-
+                basicOp++;
+            }
+                
             for (int i = min; i <= max; i++)
             {
                 while (count[i - min]-- > 0)
                 {
+                    basicOp++;
                     data[z] = i;
                     ++z;
                 }

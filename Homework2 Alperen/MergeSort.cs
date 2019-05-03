@@ -8,6 +8,7 @@ namespace Homework2
 {
     class MergeSort
     {
+        public long basicOp = 0;
         public void mergeSort(int[] arr, int p, int r)
         {
             if (p < r)
@@ -38,6 +39,7 @@ namespace Homework2
             k = p;
             while (i < n1 && j < n2)
             {
+                basicOp++;
                 if (L[i] <= R[j])
                 {
                     arr[k] = L[i];
@@ -52,12 +54,14 @@ namespace Homework2
             }
             while (i < n1)
             {
+                basicOp++;
                 arr[k] = L[i];
                 i++;
                 k++;
             }
             while (j < n2)
             {
+                basicOp++;
                 arr[k] = R[j];
                 j++;
                 k++;

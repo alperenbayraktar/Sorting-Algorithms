@@ -20,16 +20,16 @@ namespace Homework2
                 lengths[i] = x + 1000;
                 x += 1000;
             }
-            for (int k = 0; k < 1; k++)                          //100 different tests
+            for (int k = 0; k < lengths.Length; k++)                          //100 different tests
             {
                 for (int i = 0; i < lengths.Length; i++)                    //Testing with 100 different input sizes.
                 {
                     Console.WriteLine("Array Length is: " + lengths[i]);
                     int[] input = createArray(lengths[i]);                  //Creating different sized, random valued input arrays.
-                    execute("insertion", input);                            //Sorting the same input array with different methods.
-                    execute("merge", input);
-                    execute("counting", input);
-                    execute("heap", input);
+                    //execute("insertion", input);                            //Sorting the same input array with different methods.
+                    //execute("merge", input);
+                    //execute("counting", input);
+                    //execute("heap", input);
                     execute("quick", input);
                     global++;                                               //When this hits 99, we are going to get to a new line + new test
                 }
@@ -97,24 +97,28 @@ namespace Homework2
                     path = "merge.txt";
                     MergeSort mer = new MergeSort();
                     mer.mergeSort(output, 0, output.Length - 1);
+                    basic = mer.basicOp;
                     break;
                 case "counting":
                     title = sr.counting;
                     path = "counting.txt";
                     CountingSort con = new CountingSort();
                     con.sort(output);
+                    basic = con.basicOp;
                     break;
                 case "quick":
                     title = sr.quick;
                     path = "quick.txt";
                     QuickSort quick = new QuickSort();
                     quick.quickSort(output, 0, output.Length - 1);
+                    basic = quick.basicOp;
                     break;
                 case "heap":
                     path = "heap.txt";
                     title = sr.heap;
                     HeapSort heap = new HeapSort();
                     heap.heapSort(output, output.Length);
+                    basic = heap.basicOp;
                     break;
                 default:
                     break;
@@ -133,6 +137,7 @@ namespace Homework2
             Console.WriteLine();
             path = pathCreate(path);
             append(bS, path);
+
             //append(time, path);
         }
         static void append(string input, string path)           //Appends the new content to the input file.
