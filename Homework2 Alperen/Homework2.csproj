@@ -73,6 +73,8 @@
     <None Include="Resources\quick.txt" />
     <None Include="Resources\heap.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\quickTime.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

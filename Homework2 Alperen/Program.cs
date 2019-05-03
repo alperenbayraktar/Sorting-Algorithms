@@ -78,6 +78,7 @@ namespace Homework2
         {
             long basic = 0;
             string path = "";
+            string pathTime = "";
             int[] output = new int[input.Length];
             Array.Copy(input, output, input.Length);                        //Copying the context of the input array to a new array to avoid losing content of input.
             StringResources sr = new StringResources();                     //This is the string resource class that we use to prevent code complexity.
@@ -109,6 +110,7 @@ namespace Homework2
                 case "quick":
                     title = sr.quick;
                     path = "quick.txt";
+                    pathTime = "quickTime.txt";
                     QuickSort quick = new QuickSort();
                     quick.quickSort(output, 0, output.Length - 1);
                     basic = quick.basicOp;
@@ -137,8 +139,8 @@ namespace Homework2
             Console.WriteLine();
             path = pathCreate(path);
             append(bS, path);
-
-            //append(time, path);
+            pathTime = pathCreate(pathTime);
+            append(time, pathTime);
         }
         static void append(string input, string path)           //Appends the new content to the input file.
         {
