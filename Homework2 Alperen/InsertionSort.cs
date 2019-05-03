@@ -8,6 +8,7 @@ namespace Homework2
 {
     class InsertionSort
     {
+        public long basicOp = 0;
         public void sort(int[] input)
         {
             int n = input.Length;
@@ -17,6 +18,7 @@ namespace Homework2
                 int j = i - 1;
                 while (j >= 0 && input[j] > key)
                 {
+                    basicOp++;
                     input[j + 1] = input[j];
                     j = j - 1;
                 }

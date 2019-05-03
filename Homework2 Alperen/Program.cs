@@ -14,13 +14,13 @@ namespace Homework2
         {
 
             int[] lengths = new int[100];           // Creating the array that we hold length values for the loop below.
-            int x = 0;                              // lengths go like 5000, 10000, 15000, 20000.........495000, 500000.
+            int x = 0;                              // lengths go like 1000, 2000, 3000, 4000.........99000, 100000.
             for (int i = 0; i < lengths.Length; i++)
             {
-                lengths[i] = x + 5000;
-                x += 5000;
+                lengths[i] = x + 1000;
+                x += 1000;
             }
-            for (int k = 0; k < lengths.Length; k++)                          //100 different tests
+            for (int k = 0; k < 1; k++)                          //100 different tests
             {
                 for (int i = 0; i < lengths.Length; i++)                    //Testing with 100 different input sizes.
                 {
@@ -76,6 +76,7 @@ namespace Homework2
         }
         static void execute(string selection, int[] input)                  //sorts for desired algorithm and input array. 
         {
+            long basic = 0;
             string path = "";
             int[] output = new int[input.Length];
             Array.Copy(input, output, input.Length);                        //Copying the context of the input array to a new array to avoid losing content of input.
@@ -89,6 +90,7 @@ namespace Homework2
                     path = "insertion.txt";
                     InsertionSort ins = new InsertionSort();
                     ins.sort(output);
+                    basic = ins.basicOp;
                     break;
                 case "merge":
                     title = sr.merge;
@@ -127,9 +129,11 @@ namespace Homework2
             Console.Write(sr.time);
             Console.WriteLine(elapsedMs);
             string time = "" + elapsedMs;
+            string bS = "" + basic;
             Console.WriteLine();
             path = pathCreate(path);
-            append(time, path);
+            append(bS, path);
+            //append(time, path);
         }
         static void append(string input, string path)           //Appends the new content to the input file.
         {
