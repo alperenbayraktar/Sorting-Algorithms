@@ -20,18 +20,18 @@ namespace Homework2
                 lengths[i] = x + 1000;
                 x += 1000;
             }
-            for (int k = 0; k < 10; k++)                          //100 different tests
+            for (int k = 0; k < 5; k++)                 //100 different tests
             {
-                for (int i = 0; i < lengths.Length; i++)                    //Testing with 100 different input sizes.
+                for (int i = 0; i < lengths.Length; i++)//Testing with 100 different input sizes.
                 {
                     Console.WriteLine("Array Length is: " + lengths[i]);
-                    int[] input = createArray(lengths[i]);                  //Creating different sized, random valued input arrays.
-                    execute("insertion", input);                            //Sorting the same input array with different methods.
+                    int[] input = createArray(lengths[i]); //Creating different sized, random valued input arrays.
+                    execute("insertion", input);  //Sorting the same input array with different methods.
                     execute("merge", input);
                     execute("counting", input);
                     execute("heap", input);
                     execute("quick", input);
-                    global++;                                               //When this hits 99, we are going to get to a new line + new test
+                    global++;  //When this hits 99, we are going to get to a new line + new test
                 }
                 global = 0; //Need to reset the value for the next iteration.
             }
@@ -47,8 +47,8 @@ namespace Homework2
             //    execute("quick", input);
             //}
         }
-        static int[] createArray(int length)                                //Creates an array with random valued numbers between 0,1000 for given size(length). 
-        {
+        static int[] createArray(int length)
+        {         //Creates an array with random valued numbers between 0,1000 for given size(length). 
             int[] input = new int[length];
             Random random = new Random();
             for (int i = 0; i < input.Length; i++)
@@ -57,8 +57,8 @@ namespace Homework2
             }
             return input;
         }
-        static int[] createBestArray(int length)                            //Creates the best case array for given size(length).
-        {
+        static int[] createBestArray(int length)
+        {               //Creates the best case array for given size(length).
             int[] input = new int[length];
             for (int i = 0; i < input.Length; i++)
             {
@@ -66,24 +66,24 @@ namespace Homework2
             }
             return input;
         }
-        static void printArray(int[] arr)                                   //prints the array (for testing at development phase)
-        {
+        static void printArray(int[] arr)
+        {        //prints the array (for testing at development phase)
             int n = arr.Length;
             for (int i = 0; i < n; ++i)
                 Console.Write(arr[i] + " ");
 
             Console.Write("\n");
         }
-        static void execute(string selection, int[] input)                  //sorts for desired algorithm and input array. 
-        {
+        static void execute(string selection, int[] input)
+        {            //sorts for desired algorithm and input array. 
             long basic = 0;
             string path = "";
             string pathTime = "";
             int[] output = new int[input.Length];
-            Array.Copy(input, output, input.Length);                        //Copying the context of the input array to a new array to avoid losing content of input.
-            StringResources sr = new StringResources();                     //This is the string resource class that we use to prevent code complexity.
+            Array.Copy(input, output, input.Length);      //Copying the context of the input array to a new array to avoid losing content of input.
+            StringResources sr = new StringResources();     //This is the string resource class that we use to prevent code complexity.
             string title = "";
-            var watch = System.Diagnostics.Stopwatch.StartNew();            //Starts the clock.
+            var watch = System.Diagnostics.Stopwatch.StartNew();     //Starts the clock.
             switch (selection)
             {
                 case "insertion":
@@ -146,18 +146,18 @@ namespace Homework2
             pathTime = pathCreate(pathTime);
             append(time, pathTime);
         }
-        static void append(string input, string path)           //Appends the new content to the input file.
-        {
+        static void append(string input, string path)
+        {            //Appends the new content to the input file.
             using (StreamWriter file = new StreamWriter(@path, true))
             {
-                if (global == 99)                             //When the global counter hits 99, appends the value and proceeds to the new line.
-                {
+                if (global == 99)
+                {       //When the global counter hits 99, appends the value and proceeds to the new line.
                     file.Flush();
                     file.WriteLine(input);
                     file.Close();
                 }
                 else
-                {                                            //Writes thhe value to the same line in data file.
+                {               //Writes thhe value to the same line in data file.
                     file.Flush();
                     file.Write(input + " ");
                     file.Close();
@@ -165,8 +165,8 @@ namespace Homework2
             }
         }
         static string pathCreate(string path)
-        {
-            string workingDirectory = Environment.CurrentDirectory;                     //To get to solutions directory for updating the data files.
+        {            //To get to solutions directory for updating the data files.
+            string workingDirectory = Environment.CurrentDirectory;   
             string fileLoc = Directory.GetParent(workingDirectory).Parent.FullName;
             path = fileLoc + "\\Resources\\" + path;
             return path;

@@ -22,9 +22,11 @@ namespace Homework2
                 count[i] = 0;
             }
 
+            //increments +1 the frequency of the number that 
+            //we get from data array to hold how many times that it is occured.
             for (int i = 0; i < data.Length; i++)
             {
-                count[data[i] - min]++; //increments +1 the frequency of the number that we get from data array to hold how many times that it is occured.
+                count[data[i] - min]++; 
                 basicOp++;
             }
                 
