@@ -20,16 +20,16 @@ namespace Homework2
                 lengths[i] = x + 1000;
                 x += 1000;
             }
-            for (int k = 0; k < lengths.Length; k++)                          //100 different tests
+            for (int k = 0; k < 10; k++)                          //100 different tests
             {
                 for (int i = 0; i < lengths.Length; i++)                    //Testing with 100 different input sizes.
                 {
                     Console.WriteLine("Array Length is: " + lengths[i]);
                     int[] input = createArray(lengths[i]);                  //Creating different sized, random valued input arrays.
-                    //execute("insertion", input);                            //Sorting the same input array with different methods.
-                    //execute("merge", input);
-                    //execute("counting", input);
-                    //execute("heap", input);
+                    execute("insertion", input);                            //Sorting the same input array with different methods.
+                    execute("merge", input);
+                    execute("counting", input);
+                    execute("heap", input);
                     execute("quick", input);
                     global++;                                               //When this hits 99, we are going to get to a new line + new test
                 }
@@ -53,7 +53,7 @@ namespace Homework2
             Random random = new Random();
             for (int i = 0; i < input.Length; i++)
             {
-                input[i] = random.Next(0, 1000);
+                input[i] = random.Next(0, 1001);
             }
             return input;
         }
@@ -89,6 +89,7 @@ namespace Homework2
                 case "insertion":
                     title = sr.insertion;
                     path = "insertion.txt";
+                    pathTime = "insertionTime.txt";
                     InsertionSort ins = new InsertionSort();
                     ins.sort(output);
                     basic = ins.basicOp;
@@ -96,6 +97,7 @@ namespace Homework2
                 case "merge":
                     title = sr.merge;
                     path = "merge.txt";
+                    pathTime = "mergeTime.txt";
                     MergeSort mer = new MergeSort();
                     mer.mergeSort(output, 0, output.Length - 1);
                     basic = mer.basicOp;
@@ -103,6 +105,7 @@ namespace Homework2
                 case "counting":
                     title = sr.counting;
                     path = "counting.txt";
+                    pathTime = "countingTime.txt";
                     CountingSort con = new CountingSort();
                     con.sort(output);
                     basic = con.basicOp;
@@ -117,6 +120,7 @@ namespace Homework2
                     break;
                 case "heap":
                     path = "heap.txt";
+                    pathTime = "heapTime.txt";
                     title = sr.heap;
                     HeapSort heap = new HeapSort();
                     heap.heapSort(output, output.Length);

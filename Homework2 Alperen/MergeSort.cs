@@ -54,14 +54,12 @@ namespace Homework2
             }
             while (i < n1)
             {
-                basicOp++;
                 arr[k] = L[i];
                 i++;
                 k++;
             }
             while (j < n2)
             {
-                basicOp++;
                 arr[k] = R[j];
                 j++;
                 k++;

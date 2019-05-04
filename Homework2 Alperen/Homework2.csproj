@@ -74,6 +74,10 @@
     <None Include="Resources\heap.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\countingTime.txt" />
+    <Content Include="Resources\heapTime.txt" />
+    <Content Include="Resources\insertionTime.txt" />
+    <Content Include="Resources\mergeTime.txt" />
     <Content Include="Resources\quickTime.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
