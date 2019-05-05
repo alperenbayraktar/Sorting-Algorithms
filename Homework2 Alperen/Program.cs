@@ -20,7 +20,7 @@ namespace Homework2
                 lengths[i] = x + 1000;
                 x += 1000;
             }
-            for (int k = 0; k < 200; k++)                 //100 different tests
+            for (int k = 0; k < 1; k++)                 //100 different tests
             {
                 for (int i = 0; i < lengths.Length; i++)//Testing with 100 different input sizes.
                 {
